@@ -48,7 +48,7 @@ module.exports.getAccessToken = async (event) => {
 
   // decode authorization code extracted from thr URL query
   const code = decodeURIComponent(`${event.pathParameters.code}`);
-
+    console.log('-------------',code)
   return new Promise((resolve, reject) => {
     oAuth2Client.getToken(code, (err, token) => {
       if (err) {
@@ -61,6 +61,10 @@ module.exports.getAccessToken = async (event) => {
       // respond with OAuth token
       return {
         statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          'Access-Control-Allow-Credentials': true,
+        },
         body: JSON.stringify(token),
       };
     })
@@ -73,3 +77,5 @@ module.exports.getAccessToken = async (event) => {
       };
     });
 };
+
+
