@@ -16,5 +16,12 @@ describe('< CitySearch /> component', () => {
     expect(CitySearchWrapper.find('.suggestions')).toHaveLength(1);
   })
 
+  test('render text input correctly', ()=> {
+    const query = CitySearchWrapper.state('query');
+    expect(CitySearchWrapper.find('.city').prop('value')).toBe(query);
+  })
+
+  
+
 
 } )
