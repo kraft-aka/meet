@@ -32,7 +32,7 @@ describe("<Event /> component", () => {
   });
 
   test("event is expanded when button clicked", () => {
-    EventWrapper.setState({ hidden: false });
+    EventWrapper.setState({ hidden: true });
     EventWrapper.find(".event-button").simulate("click");
     expect(EventWrapper.state("hidden")).toBe(false);
   });

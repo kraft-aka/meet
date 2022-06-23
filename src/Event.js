@@ -6,11 +6,9 @@ class Event extends Component {
   };
 
   handleChangeOnBtnClick = () => {
-    if (this.state.hidden) {
-      this.setState({ hidden: true });
-    } else {
-      this.setState({ hidden: false });
-    }
+    this.state.hidden
+      ? this.setState({ hidden: false })
+      : this.setState({ hidden: true });
   };
 
   BtnTextOnClick = () => {
@@ -23,7 +21,7 @@ class Event extends Component {
 
   render() {
     const { event } = this.props;
-   
+
     return (
       <div className="event">
         <h2 className="title">{event.summary}</h2>
