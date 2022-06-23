@@ -3,27 +3,27 @@ import { shallow } from "enzyme";
 import Event from "../Event";
 import { mockData } from "../mock-data";
 
-
-describe('<Event /> component', ()=> {
+describe("<Event /> component", () => {
   let EventWrapper;
-  beforeAll(()=> EventWrapper = shallow(<Event event={mockData}/>));
+  beforeAll(() => (EventWrapper = shallow(<Event event={mockData} />)));
 
-  test('render event', ()=> {
-    expect(EventWrapper.find('.event')).toHaveLength(1);
-  })
+  test("render event", () => {
+    expect(EventWrapper.find(".event")).toHaveLength(1);
+  });
 
-  test('render a title', ()=> {
-    expect(EventWrapper.find('.title')).toHaveLength(1);
-  })
+  test("render a title", () => {
+    expect(EventWrapper.find(".title")).toHaveLength(1);
+  });
 
-  test('render short overview aboout event',()=> {
-    expect(EventWrapper.find('.description')).toHaveLength(1);
-  })
+  test("render short overview aboout event", () => {
+    expect(EventWrapper.find(".description")).toHaveLength(1);
+  });
 
-  test('render a button of event', ()=> {
-    expect(EventWrapper.find('.event-button')).toHaveLength(1);
-  })
+  test("render the location of the event", () => {
+    expect(EventWrapper.find(".event-location")).toHaveLength(1);
+  });
 
-
-
-} )
+  test("render a button of event", () => {
+    expect(EventWrapper.find(".event-button")).toHaveLength(1);
+  });
+});
