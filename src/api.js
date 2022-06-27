@@ -47,7 +47,7 @@ export const getAccessToken = async () => {
       const { authUrl } = result.data;
       return (window.location.href = authUrl);
     }
-    return code && getAccessToken(code);
+    return code && getToken(code);
   }
   return accessToken;
 };
@@ -75,7 +75,7 @@ const removeQuery = () => {
 
 export const getEvents = async () => {
   NProgress.start();
-
+//debugger
   if (window.location.href.startsWith("http://localhost")) {
     NProgress.done();
     return mockData;
