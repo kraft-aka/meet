@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import "./nprogress.css"
+import "./nprogress.css";
 import EventList from "./EventList";
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
@@ -10,6 +10,7 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
+    numberOfEvents: 32,
   };
 
   updateEvents = (location) => {
@@ -24,11 +25,17 @@ class App extends Component {
     });
   };
 
+  updateNumberOfEvents = (numberOfEvents) => {
+    this.setState({ numberOfEvents });
+    this.updateEvents(this.state.locations, numberOfEvents);
+  };
+
   componentDidMount() {
     this.mounted = true;
-    getEvents().then((events)=> {
-      if (this.mounted)
-      { this.setState({ events, locations: extractLocations(events)}) };
+    getEvents().then((events) => {
+      if (this.mounted) {
+        this.setState({ events, locations: extractLocations(events) });
+      }
     });
   }
 
@@ -43,8 +50,11 @@ class App extends Component {
           locations={this.state.locations}
           updateEvents={this.updateEvents}
         />
-        <NumberOfEvents />
-        <EventList events={this.state.events} />        
+        <NumberOfEvents
+          numberOfEvents={this.numberOfEvents}
+          updateNumberOfEvents={this.updateNumberOfEvents}
+        />
+        <EventList events={this.state.events} />
       </div>
     );
   }

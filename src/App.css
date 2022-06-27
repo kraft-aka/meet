@@ -39,6 +39,10 @@
 
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
+body {
+  background-color: #DCEBF7;
+}
 .App {
   text-align: center;
   padding: 2% 5%;
@@ -123,6 +127,7 @@ input[type="number"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   position: relative;
+  background-color: #fff;
 }
 
 .details-btn {
@@ -245,11 +250,29 @@ input[type="number"] {
   margin: 11px 11px 0 0;
   color: #fff;
   font-size: 14px;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.5px;
   font-family: "Roboto";
 }
 
+.event {
+  box-shadow: 6px 6px 5px rgba(0,0,0,0.1);
+}
 
+.event-button {
+  background-color: #e7e7e7;
+  margin-top: 30px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  
+}
+
+.event-button:hover {
+  cursor: pointer;
+  background-color: #ccccd1;
+
+}
 
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {

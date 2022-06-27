@@ -72,4 +72,11 @@ describe('<App /> integration',()=> {
     expect(AppWrapper.state('events')).toEqual(allEvents);
     AppWrapper.unmount();
   });
+
+  // test for NumberOfEvents 
+  test('App specifies number of events to be dispalyed',()=> {
+    const AppWrapper = mount(<NumberOfEvents />);
+    expect(AppWrapper.state().numberOfEvents).toEqual(32);
+    AppWrapper.unmount();
+  })
 })
