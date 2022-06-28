@@ -19,13 +19,19 @@ class Event extends Component {
     }
   };
 
+  // date and time parser
+  parseDateTime = (dateTime) => {
+    let newDate = new Date(dateTime);
+    return newDate.toString();
+  }
+
   render() {
     const { event } = this.props;
 
     return (
       <div className="event">
         <h2 className="title">{event.summary}</h2>
-        <p className="event-date--time">{event.start.dateTime}</p>
+        <p className="event-date--time" >{this.parseDateTime(event.start.dateTime)}</p>
         <p className="event-location">{event.location}</p>
         {!this.state.hidden && <h5 className="about">About Event</h5>}
         {!this.state.hidden && (
