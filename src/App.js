@@ -22,9 +22,8 @@ class App extends Component {
 
       if (this.mounted) {
         this.setState({
-          events: locationEvents.slice(0,this.state.numberOfEvents),
-          currentLocation: location,
-          numberOfEvents: eventCount
+          events: locationEvents.slice(0,eventCount),
+          numberOfEvents: eventCount,
         });
       }
       
@@ -50,6 +49,8 @@ class App extends Component {
   }
 
   render() {
+    const {locations, numberOfEvents} = this.state;
+
     return (
       <div className="App">
         <CitySearch
@@ -57,7 +58,7 @@ class App extends Component {
           updateEvents={this.updateEvents}
         />
         <NumberOfEvents
-          numberOfEvents={this.numberOfEvents}
+          numberOfEvents={this.state.numberOfEvents}
           updateNumberOfEvents={this.updateNumberOfEvents}
         />
         <EventList events={this.state.events} />
