@@ -74,9 +74,17 @@ describe('<App /> integration',()=> {
   });
 
   // test for NumberOfEvents 
-  test('App specifies number of events to be dispalyed',()=> {
-    const AppWrapper = mount(<NumberOfEvents />);
-    expect(AppWrapper.state().numberOfEvents).toEqual(32);
+  // test('App specifies number of events to be dispalyed',()=> {
+  //   const AppWrapper = mount(<NumberOfEvents />);
+  //   expect(AppWrapper.state().numberOfEvents).toEqual(32);
+  //   AppWrapper.unmount();
+  // })
+
+  test('specify number of events to be displayed',()=> {
+    const AppWrapper = mount(<App />);
+    const AppNumberOfEventsState = AppWrapper.state('numberOfEvents');
+    expect(AppNumberOfEventsState).not.toEqual(undefined);
+    expect(AppWrapper.find(NumberOfEvents).state().numberOfEvents).toEqual(32);
     AppWrapper.unmount();
   })
 })
