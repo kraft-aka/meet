@@ -7,7 +7,11 @@ class NumberOfEvents extends Component {
 
   handleEventNumberChanged = (e) => {
     const newNumberOfEvent = e.target.value;
-    this.setState({ numberOfEvents: newNumberOfEvent });
+    if (isNaN (newNumberOfEvent) || newNumberOfEvent > 32 ) {
+      return this.state.numberOfEvents;
+    } else {
+      this.setState({ numberOfEvents: newNumberOfEvent });
+    }
   };
 
   render() {

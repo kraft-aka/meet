@@ -24,6 +24,20 @@ describe("<NumberOfEvents /> component", () => {
     );
   });
 
+  test('accept a correct data type for number of events',()=> {
+    const eventObject = { target: { value: 'random letter' } };
+    NumberOfEventsWrapper.setState({numberOfEvents: 32});
+    NumberOfEventsWrapper.find('.number').simulate('change', eventObject);
+    expect(NumberOfEventsWrapper.state('numberOfEvents')).toEqual(32);
+  });
+
+  test('accpet numbers between 1 and 32 for number of events', ()=> {
+    const eventObject = { target: { value: 65} };
+    NumberOfEventsWrapper.setState({ numberOfEvents: 32});
+    NumberOfEventsWrapper.find('.number').simulate('change', eventObject);
+    expect(NumberOfEventsWrapper.state('numberOfEvents')).toEqual(32);
+  })
+
   test("render change the number of events when the input number changed", () => {
     NumberOfEventsWrapper.setState({ numberOfEvents: 5 });
     const eventObject = { target: { value: 10 } };
