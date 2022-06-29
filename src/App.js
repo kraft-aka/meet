@@ -60,8 +60,6 @@ class App extends Component {
           updateEvents={this.updateEvents}
         />
         <NumberOfEvents
-          // numberOfEvents={this.state.numberOfEvents}
-          // updateNumberOfEvents={this.updateNumberOfEvents}
           updateEvents={this.updateEvents}
           events={this.state.events}
         />
