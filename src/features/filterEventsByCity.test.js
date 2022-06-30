@@ -10,13 +10,12 @@ const feature = loadFeature("./src/features/filterEventsByCity.feature");
 const locations = extractLocations(mockData);
 
 defineFeature(feature, (test) => {
-  test("When user hasn’t searched for a city, show upcoming events from all cities.", ({
+  test("When user hasn't searched for a city, show upcoming events from all cities.", ({
     given,
     when,
     then,
   }) => {
-    given("user hasn’t searched for any city", () => {});
-
+    given("user hasn't searched for any city", () => {});
     let AppWrapper;
     when("the user opens the app", () => {
       AppWrapper = mount(<App />);
@@ -64,7 +63,7 @@ defineFeature(feature, (test) => {
     given("user was typing “Berlin” in the city textbox", async () => {
       AppWrapper = await mount(<App />);
       AppWrapper.find(".city").simulate("change", {
-        traget: { value: "Berlin" },
+        target: { value: "Berlin" },
       });
     });
 
@@ -91,7 +90,7 @@ defineFeature(feature, (test) => {
     and(
       "the user should receive a list of upcoming events in that city",
       () => {
-        expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
+        expect(AppWrapper.find(".event")).toHaveLength(mockData.length);
       }
     );
   });
