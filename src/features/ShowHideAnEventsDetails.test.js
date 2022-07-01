@@ -3,7 +3,6 @@ import { mount, shallow } from "enzyme";
 import App from "../App";
 import Event from "../Event";
 import { mockData } from "../mock-data";
-import { extractLocations } from "../api";
 import { loadFeature, defineFeature } from "jest-cucumber";
 
 const feature = loadFeature("./src/features/showHideAnEventsDetails.feature");
