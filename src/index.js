@@ -2,8 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import * as atatus from 'atatus-spa';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+
+atatus.config('bd62c3191a9c4beaab5aa27a54754ccb').install();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
