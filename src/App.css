@@ -187,8 +187,15 @@ input[type="number"] {
 
 .Alert {
   position: fixed;
-  top: 20px;
+  top: 30px;
 }
+
+/* .number-box + p {
+  position: fixed;
+  top: 40px;
+  margin-top: 6rem;
+} */
+
 
 .data-vis-wrapper {
   display: flex;
