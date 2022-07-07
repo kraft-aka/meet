@@ -148,9 +148,9 @@ input[type="number"] {
 .Alert {
   position: fixed;
   left: 50%;
-  transform: translate(-50%, -60%);
+  transform: translate(-50%, -85%);
   font-weight: 700;
-  z-index: 10;
+  z-index: 999;
 }
 
 .data-vis-wrapper {
