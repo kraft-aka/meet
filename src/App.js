@@ -4,16 +4,21 @@ import "./nprogress.css";
 import EventList from "./EventList";
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
-import { extractLocations, getEvents } from "./api";
+import WelcomeScreen from "./WelcomeScreen";
+import { extractLocations, getEvents, checkToken, getAccessToken } from "./api";
 
 class App extends Component {
   state = {
     events: [],
     locations: [],
     numberOfEvents: 32,
+    showWelcomeScreen: undefined,
   };
 
-  updateEvents = (location=this.state.currentLocation, eventCount=this.state.eventsLength) => {
+  updateEvents = (
+    location = this.state.currentLocation,
+    eventCount = this.state.eventsLength
+  ) => {
     getEvents().then((events) => {
       const locationEvents =
         location === "all"
@@ -22,13 +27,12 @@ class App extends Component {
 
       if (this.mounted) {
         this.setState({
-          events: locationEvents.slice(0,eventCount), 
+          events: locationEvents.slice(0, eventCount),
           eventsLength: eventCount,
           currentLocation: location,
           numberOfEvents: eventCount,
         });
       }
-      
     });
   };
 
@@ -37,13 +41,21 @@ class App extends Component {
     this.updateEvents(this.state.locations, numberOfEvents);
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     this.mounted = true;
-    getEvents().then((events) => {
-      if (this.mounted) {
-        this.setState({ events, locations: extractLocations(events) });
-      }
-    });
+    const accessToken = localStorage.getItem('access_token');
+    const isTokenValid = ( await checkToken(accessToken)).error ? false : true;
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get('code');
+    this.setState({ showWelcomeScreen: !(code || isTokenValid)});
+    if ((code || isTokenValid) && this.mounted) {
+      getEvents().then((events) => {
+        if (this.mounted) {
+          this.setState({ events, locations: extractLocations(events) });
+        }
+      });
+    }
+    
   }
 
   componentWillUnmount() {
@@ -51,7 +63,8 @@ class App extends Component {
   }
 
   render() {
-    const {locations, numberOfEvents} = this.state;
+    if (this.state.showWelcomeScreen === undefined)
+      return <div className="App" />;
 
     return (
       <div className="App">
@@ -64,6 +77,12 @@ class App extends Component {
           events={this.state.events}
         />
         <EventList events={this.state.events} />
+        <WelcomeScreen
+          showWelcomeScreen={this.state.showWelcomeScreen}
+          getAccessToken={() => {
+            getAccessToken();
+          }}
+        />
       </div>
     );
   }
