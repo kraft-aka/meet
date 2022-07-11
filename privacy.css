@@ -1,0 +1,29 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #DCEBF7;
+  font-family: 'Roboto', sans-serif;
+  margin: 0 100px;
+}
+
+.title {
+  color: #C43B2F;
+}
+
+#sub-title {
+  padding: 50px 0;
+  text-align: center;
+}
+
+#content { 
+  max-width: 100%;
+  font-size: 18px;
+}
