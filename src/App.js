@@ -4,6 +4,7 @@ import "./nprogress.css";
 import EventList from "./EventList";
 import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
+import { OfflineAlert } from "./Alert";
 import WelcomeScreen from "./WelcomeScreen";
 import { extractLocations, getEvents, checkToken, getAccessToken } from "./api";
 
@@ -13,6 +14,7 @@ class App extends Component {
     locations: [],
     numberOfEvents: 32,
     showWelcomeScreen: undefined,
+    offline: ''
   };
 
   updateEvents = (
@@ -43,11 +45,11 @@ class App extends Component {
 
   async componentDidMount() {
     this.mounted = true;
-    const accessToken = localStorage.getItem('access_token');
-    const isTokenValid = ( await checkToken(accessToken)).error ? false : true;
+    const accessToken = localStorage.getItem("access_token");
+    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
     const searchParams = new URLSearchParams(window.location.search);
-    const code = searchParams.get('code');
-    this.setState({ showWelcomeScreen: !(code || isTokenValid)});
+    const code = searchParams.get("code");
+    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
     if ((code || isTokenValid) && this.mounted) {
       getEvents().then((events) => {
         if (this.mounted) {
@@ -55,7 +57,13 @@ class App extends Component {
         }
       });
     }
-    
+    if (!navigator.onLine) {
+      this.setState({
+        offline: "You are now offline, please check internet connection",
+      });
+    } else {
+      this.setState({ offline: "" });
+    }
   }
 
   componentWillUnmount() {
@@ -68,6 +76,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <OfflineAlert offline={this.state.offline}/>
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}

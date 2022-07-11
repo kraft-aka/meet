@@ -29,7 +29,7 @@ class NumberOfEvents extends Component {
     return (
       <div className="number-box">
         <ErrorAlert text={this.state.infoText} />
-        <label className="number-events--label">Number of Events</label><br />
+        <label className="number-events--label" for="number">Number of Events</label><br />
         <input
           type="text"
           className="number"
