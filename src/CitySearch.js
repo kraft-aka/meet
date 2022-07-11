@@ -41,6 +41,8 @@ class CitySearch extends Component {
     return (
       <div className="CitySearch">
         <InfoAlert text={this.state.infoText} />
+        <h2 className="title">Meet App</h2>
+        <h4 className="sub-title">Seacrh your city here</h4>
         <input
           type="text"
           className="city"
