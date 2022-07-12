@@ -60,7 +60,7 @@ input[type="number"] {
   z-index: 2;
   align-self: center;
   margin: 0;
-  top: 43px;
+  top: 230px;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
 }
@@ -148,7 +148,7 @@ input[type="number"] {
 .Alert {
   position: fixed;
   left: 50%;
-  transform: translate(-50%, -85%);
+  transform: translate(-50%, 330%);
   font-weight: 700;
   z-index: 999;
 }
@@ -270,6 +270,10 @@ input[type="number"] {
 
 .title {
   color: #C43B2F;
+}
+
+.sub-title {
+  margin-top: 5px;
 }
 
 

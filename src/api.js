@@ -19,6 +19,7 @@ export const checkToken = async (accessToken) => {
   return result;
 };
 
+
 const getToken = async (code) => {
   try {
     const encodeCode = encodeURIComponent(code);
