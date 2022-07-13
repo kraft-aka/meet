@@ -40,7 +40,7 @@ input[type="number"] {
   height: 38px;
 }
 
-.city {
+.city,.number {
   width: 250px;
 }
 
@@ -60,7 +60,7 @@ input[type="number"] {
   z-index: 2;
   align-self: center;
   margin: 0;
-  top: 230px;
+  top: 200px;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
 }
@@ -122,13 +122,16 @@ input[type="number"] {
 
 .number-box {
   display: flex;
-  justify-content:space-around;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin: 30px;
 }
 
 .number-events--label {
   display: flex;
-  margin: 15px 15px 0 0;
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .numberOfEvents {
@@ -148,7 +151,7 @@ input[type="number"] {
 .Alert {
   position: fixed;
   left: 50%;
-  transform: translate(-50%, 330%);
+  transform: translate(-50%, -25%);
   font-weight: 700;
   z-index: 999;
 }
@@ -269,6 +272,7 @@ input[type="number"] {
 }
 
 .title {
+  margin-top: 5px;
   color: #C43B2F;
 }
 
