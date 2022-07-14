@@ -33,15 +33,11 @@ export const getAccessToken = async () => {
 
 //check the token and its validity
 export const checkToken = async (accessToken) => {
-  try {
-    const result = await fetch(
-      `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
-    );
-    console.log(result)
-    return await result.json();
-  } catch (error) {
-    error.json();
-  }
+  const result = await fetch(`https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`)
+      .then((res) => res.json())
+      .catch((error) => error.json());
+      console.log(result)
+    return result;
 };
 
 

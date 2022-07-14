@@ -14,7 +14,7 @@ class App extends Component {
     locations: [],
     numberOfEvents: 32,
     showWelcomeScreen: undefined,
-    offline: ''
+    // offline: ''
   };
 
   updateEvents = (
@@ -57,13 +57,13 @@ class App extends Component {
         }
       });
     }
-    if (!navigator.onLine) {
-      this.setState({
-        offline: "You are now offline, please check internet connection",
-      });
-    } else {
-      this.setState({ offline: "" });
-    }
+    // if (!navigator.onLine) {
+    //   this.setState({
+    //     offline: "You are now offline, please check internet connection",
+    //   });
+    // } else {
+    //   this.setState({ offline: "" });
+    // }
   }
 
   componentWillUnmount() {
