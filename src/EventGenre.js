@@ -3,7 +3,7 @@ import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
 const EventGenre = ({ events }) => {
   const [data, setData] = useState([]);
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+  // const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
   useEffect(() => {
     const getData = () => {
@@ -14,10 +14,10 @@ const EventGenre = ({ events }) => {
         ).length;
         return { name: genre, value };
       });
-      return { data };
+      return data;
     };
     setData(getData());
-  }, [ events]);
+  }, [events]);
 
   return (
     <ResponsiveContainer height={400}>
@@ -34,8 +34,12 @@ const EventGenre = ({ events }) => {
             `${name} ${(percent * 100).toFixed(0)}%`
           }
         >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} name={entry.name}/>
+          {/* {data.map((entry, index) => (
+            <Cell
+              key={`cell-${index}`}
+              fill={COLORS[index % COLORS.length]}
+              name={entry.name} */}
+            />
           ))}
         </Pie>
       </PieChart>
