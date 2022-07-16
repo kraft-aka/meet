@@ -17,6 +17,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import EventGenre from "./EventGenre";
+import Header from "./Header";
 
 class App extends Component {
   state = {
@@ -99,6 +100,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <Header />
         <OfflineAlert offline={this.state.offline} />
         <CitySearch
           locations={this.state.locations}

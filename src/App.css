@@ -3,6 +3,7 @@
 body {
   background-color: #DCEBF7;
 }
+
 .App {
   text-align: center;
   padding: 2% 15%;
@@ -24,6 +25,7 @@ p {
 .display-none {
   display: none;
 }
+
 .showSuggestions {
   display: block;
 }
@@ -40,7 +42,8 @@ input[type="number"] {
   height: 38px;
 }
 
-.city,.number {
+.city,
+.number {
   width: 250px;
 }
 
@@ -65,19 +68,19 @@ input[type="number"] {
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
 }
 
-.suggestions > li {
+.suggestions>li {
   text-align: left;
   padding: 8px 6px 8px 10px;
   background-color: #eee;
   cursor: default;
 }
 
-.suggestions > li:last-child {
+.suggestions>li:last-child {
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
 
-.suggestions > li:hover {
+.suggestions>li:hover {
   background-color: #bcdcdb;
 }
 
@@ -161,10 +164,12 @@ input[type="number"] {
   align-items: center;
   flex-direction: column;
 }
+
 .data-vis-wrapper .recharts-responsive-container {
   min-width: 100%;
   display: flex;
 }
+
 .recharts-surface {
   overflow: visible;
 }
@@ -190,12 +195,15 @@ input[type="number"] {
   border-radius: 2px;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
 }
+
 .google-btn:hover {
   box-shadow: 0 0 6px #4285f4;
 }
+
 .google-btn:active {
   background: #1669f2;
 }
+
 .google-icon-wrapper {
   position: absolute;
   margin-top: 1px;
@@ -205,6 +213,7 @@ input[type="number"] {
   border-radius: 2px;
   background-color: #fff;
 }
+
 .google-icon {
   position: absolute;
   margin-top: 11px;
@@ -212,6 +221,7 @@ input[type="number"] {
   width: 18px;
   height: 18px;
 }
+
 .btn-text {
   float: right;
   margin: 11px 11px 0 0;
@@ -222,9 +232,10 @@ input[type="number"] {
 }
 
 .event {
-  box-shadow: 6px 6px 5px rgba(0,0,0,0.1);
+  box-shadow: 6px 6px 5px rgba(0, 0, 0, 0.1);
   transition: 0.2s;
 }
+
 .event:hover {
   box-shadow: 10px 10px 10px rgba(82, 122, 235, 0.12);
 }
@@ -245,7 +256,8 @@ input[type="number"] {
   transition: all 0.8s linear;
 }
 
-.event-link:hover, .event-link:focus {
+.event-link:hover,
+.event-link:focus {
   background-color: #F8E2E1;
   padding: 5px 5px;
   border-radius: 5px;
@@ -264,7 +276,7 @@ input[type="number"] {
 
 .about {
   font-size: 18px;
-  color:#C43B2F ;
+  color: #C43B2F;
 }
 
 .event-date--time {
@@ -280,11 +292,27 @@ input[type="number"] {
   margin-top: 5px;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  height: 65px;
+  background: #99AFE6;
+  color: #C43B2F;
+  padding: 20px;
+}
+
+.header-title {
+  font-size: auto;
+  font-weight: 700;
+  margin-right: auto;
+}
+
 
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {
     flex-direction: row;
   }
+
   .data-vis-wrapper .recharts-responsive-container {
     flex-basis: 50%;
     max-width: 50%;
@@ -297,6 +325,7 @@ input[type="number"] {
   .EventList {
     flex-direction: row;
   }
+
   .data-vis-wrapper .recharts-responsive-container {
     flex-basis: 30%;
     max-width: 30%;
