@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
-const EventGenre = ({ locations, events }) => {
+const EventGenre = ({ events }) => {
   const [data, setData] = useState([]);
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
@@ -17,7 +17,7 @@ const EventGenre = ({ locations, events }) => {
       return { data };
     };
     setData(getData());
-  }, [locations, events]);
+  }, [ events]);
 
   return (
     <ResponsiveContainer height={400}>
