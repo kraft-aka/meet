@@ -158,6 +158,7 @@ input[type="number"] {
   transform: translate(-50%, -25%);
   font-weight: 700;
   z-index: 999;
+  margin-top: 50px;
 }
 
 .data-vis-wrapper {
@@ -290,7 +291,7 @@ input[type="number"] {
 }
 
 .sub-title {
-  margin-top: 5px;
+  margin-top: 50px;
   font-weight: 600;
 }
 
@@ -298,18 +299,24 @@ input[type="number"] {
   position: fixed;
   display: flex;
   align-items: center;
-  height: 2rem;
+  height: 1.8rem;
   background: #99AFE6;
   color: #C43B2F;
-  padding: 20px;
+  padding: 15px;
+  z-index: 3;
+  width: 100%;
+}
 
+.header:hover {
+  box-shadow: 2px 1px 1px rgba(121, 25, 25, 0.12);
 }
 
 .header-title {
   font-family: 'Lily Script One', cursive;
   font-size: auto;
   font-weight: 900;
-  margin-right: auto;
+  margin-left: 2.5rem;
+  margin-right: 80%;
 }
 
 .header-date-time {
