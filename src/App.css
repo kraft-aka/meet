@@ -155,7 +155,7 @@ input[type="number"] {
 .Alert {
   position: fixed;
   left: 50%;
-  transform: translate(-50%, -25%);
+  transform: translate(-50%, -50%);
   font-weight: 700;
   z-index: 999;
   margin-top: 50px;
@@ -307,20 +307,19 @@ input[type="number"] {
   width: 100%;
 }
 
-.header:hover {
-  box-shadow: 2px 1px 1px rgba(121, 25, 25, 0.12);
-}
 
 .header-title {
   font-family: 'Lily Script One', cursive;
   font-size: auto;
   font-weight: 900;
   margin-left: 2.5rem;
-  margin-right: 80%;
+  justify-content: space-between;
+  margin-right: auto;
 }
 
 .header-date-time {
-  margin-left: 20px;
+  margin-left: 50px;
+  
 }
 
 
